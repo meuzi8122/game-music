@@ -1,0 +1,1 @@
+export const PAGE_TITLE = "ゲーム音楽（仮）"
