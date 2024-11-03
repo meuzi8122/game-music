@@ -14,7 +14,7 @@ export class SongClient {
                 queries: {
                     fields: this.fields,
                     /* 検索に引っ掛からないレコードがある → DB・クライアント両方で小文字にする必要あり */
-                    filters: keyword ? `name[contains]${keyword}` : "",
+                    filters: keyword ? `title[contains]${keyword}` : "",
                     orders: this.orders
                 }
             })

@@ -2,16 +2,32 @@
     import Head from "$lib/components/head.svelte";
     import SongTable from "$lib/components/song-table.svelte";
     import { PAGE_TITLE } from "$lib/constant";
-    import { createPlayer } from "$lib/global-states/player.svelte";
+    import { player, play, pause } from "$lib/stores/player.js";
+    import type { Song } from "$lib/type";
 
     const { data } = $props();
 
-    const { play } = createPlayer();
+    function handlePlay(song: Song) {
+        play(song)
+    }
+
+    function handlePause() {
+        pause();
+    }
+
 </script>
 
 <Head title={`${data.game.title} | ${PAGE_TITLE}`} />
 
 <div class="container mx-auto">
-    {data.game.title}
-    <SongTable songs={data.songs} />
+    <div>
+        {data.game.title}
+        <!-- <div class="form-control">
+            <label class="label cursor-pointer">
+                <span class="label-text">Remember me</span>
+                <input type="checkbox" class="toggle" checked="checked" />
+            </label>
+        </div> -->
+    </div>
+    <SongTable songs={data.songs} playingSongId={$player.song?.id && !$player.paused ? $player.song.id : null} handlePlayButtonClick={handlePlay} />
 </div>

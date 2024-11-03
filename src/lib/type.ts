@@ -13,4 +13,11 @@ export type Game = {
 
 export type Player = {
     song: Song | null;
+    volume: number;
+    paused: boolean; // trueなら一時停止
+    currentTime: number;
 }
+
+export type HandlePlayButtonClick = (song: Song) => void; 
+
+export type HandlePauseButtonClick = () => void;
