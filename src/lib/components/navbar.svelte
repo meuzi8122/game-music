@@ -30,8 +30,11 @@
 <div class="modal" role="dialog">
     <div class="modal-box">
         <p class="text-lg font-bold">楽曲検索</p>
-        <!-- svelte-ignore event_directive_deprecated -->
-        <input type="text" placeholder="楽曲・ゲームタイトルを入力" class="input input-bordered input-primary w-full mt-4" bind:value={keyword} on:keydown={search} />
+        <label class="input input-bordered input-primary flex items-center gap-2 w-full mt-4">
+            <SearchIcon />
+            <!-- svelte-ignore event_directive_deprecated -->
+            <input type="text" placeholder="楽曲・ゲームタイトルで検索" class="grow" bind:value={keyword} on:keydown={search} />
+        </label>
     </div>
     <label class="modal-backdrop" for="song_search_modal"></label>
 </div>
