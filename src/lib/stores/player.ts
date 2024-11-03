@@ -5,14 +5,12 @@ import { writable } from "svelte/store";
 
 export const player = writable<Player>({ 
     song: null,
-    volume: 0,
     currentTime: 0,
     paused: true
 });
 
 export function play(song: Song) {
     player.update(_player => ({ 
-        ..._player,
         song,
         paused: false,
         currentTime: 0

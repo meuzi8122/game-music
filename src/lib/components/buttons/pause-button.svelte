@@ -4,6 +4,8 @@
     const { handlePauseButtonClick } = $props<{ handlePauseButtonClick: HandlePauseButtonClick }>();
 </script>
 
+<!-- svelte-ignore a11y_consider_explicit_label -->
+<!-- svelte-ignore event_directive_deprecated -->
 <button class="btn btn-ghost" on:click={handlePauseButtonClick}>
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25v13.5m-7.5-13.5v13.5" />

@@ -13,11 +13,11 @@
 
 </script>
 
-<Head title={`${data.game.title} | ${PAGE_TITLE}`} />
+<Head title={`楽曲検索 | ${PAGE_TITLE}`} />
 
 <div class="container mx-auto">
     <div class="flex justify-center mb-7">
-        <h1 class="text-lg font-bold">{data.game.title}の楽曲</h1>
+        <h1 class="text-lg font-bold">{`${data.keyword}の検索結果`}</h1>
     </div>
     <SongList songs={data.songs} handlePlayButtonClick={handlePlay} />
 </div>
