@@ -14,3 +14,6 @@ export async function load({ params }) {
         songs
     }
 }
+
+/* キーワード検索と違って検索結果は変わらないので、プリレンダリングする。 */
+export const prerender = true;
