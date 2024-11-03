@@ -34,6 +34,19 @@ export class SongClient {
         ).contents.map(content => parseSong(content));
     }
 
+    static async findSongsByUpdatedAt() {
+        return (
+            await client.getList({ 
+                endpoint: this.endpoint,
+                queries: {
+                    fields: this.fields,
+                    limit: 30,
+                    orders: "-updatedAt"
+                }
+            })
+        ).contents.map(content => parseSong(content));
+    }
+
     static async getSong(id: string): Promise<Song> {
         return parseSong(
             await client.get({ 
