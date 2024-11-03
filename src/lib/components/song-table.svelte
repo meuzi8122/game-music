@@ -14,35 +14,25 @@
 </script>
 
 <table class="table">
-    <thead>
-        <tr>
-            <th></th>
-            <th>楽曲タイトル</th>
-            <th>ゲームタイトル</th>
-            <!-- <th>配信元</th> -->
-            <th></th>
-        </tr>
-    </thead>
     <tbody>
         {#each songs as song}
             <tr>
                 <td>
-                    <div class="avatar">
-                        <div class="mask mask-squircle h-14 w-14">
-                            <img src={song.artworkUrl} alt={song.title} />
+                    <div class="flex items-center gap-3">
+                        <div class="avatar">
+                            <div class="mask mask-squircle h-14 w-14">
+                                <img src={song.artworkUrl} alt={song.title} />
+                            </div>
+                        </div>
+                        <div>
+                            <div class="font-bold">{song.title}</div>
+                            <a class="link link-hover text-sm opacity-80" href={`/songs/games/${song.game.id}`}>{song.game.title}</a>
                         </div>
                     </div>
                 </td>
-                <td>{song.title}</td>
                 <td>
-                    <a class="link link-hover" href={`/songs/games/${song.game.id}`}>{song.game.title}</a>
-                </td>
-                <!-- <td>
-                    <a href={song.itunesUrl} target="_brank">Itunes</a>
-                </td> -->
-                <th>
                     <PlayButton handlePlayButtonClick={() => handlePlayButtonClick(song)} />
-                </th>
+                </td>
             </tr>
         {/each}
     </tbody>

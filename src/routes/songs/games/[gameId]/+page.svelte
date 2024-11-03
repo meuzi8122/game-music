@@ -20,14 +20,8 @@
 <Head title={`${data.game.title} | ${PAGE_TITLE}`} />
 
 <div class="container mx-auto">
-    <div>
-        {data.game.title}
-        <!-- <div class="form-control">
-            <label class="label cursor-pointer">
-                <span class="label-text">Remember me</span>
-                <input type="checkbox" class="toggle" checked="checked" />
-            </label>
-        </div> -->
+    <div class="flex justify-center mb-5">
+        <h1 class="text-lg font-bold">{data.game.title}の楽曲</h1>
     </div>
     <SongTable songs={data.songs} playingSongId={$player.song?.id && !$player.paused ? $player.song.id : null} handlePlayButtonClick={handlePlay} />
 </div>
