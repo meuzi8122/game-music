@@ -16,4 +16,5 @@ export async function load({ params }) {
 }
 
 /* キーワード検索と違って検索結果は変わらないので、プリレンダリングする。 */
-export const prerender = true;
+/* Error: The following routes were marked as prerenderable, but were not prerendered because they were not found while crawling your app: */
+// export const prerender = true;
