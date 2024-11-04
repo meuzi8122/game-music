@@ -10,7 +10,7 @@
         <div class="flex justify-between">
             <div class="flex items-center gap-3">
                 <div class="avatar">
-                    <div class="mask mask-squircle h-14 w-14">
+                    <div class="mask mask-squircle h-16 w-16">
                         <img src={song.artworkUrl} alt={song.title} />
                     </div>
                 </div>
