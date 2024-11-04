@@ -16,12 +16,14 @@ export const nowPlaying = derived(player, (_player) => {
     return "";
 });
 
-export function play(song: Song) {
+export async function play(song: Song) {
     player.update(_player => ({ 
         song,
         paused: false,
         currentTime: 0
     }));
+
+   const res = await fetch(`/api/songs/${song.id}`, { method: "PATCH" });
 }
 
 export function restart() {

@@ -33,16 +33,35 @@ export class SongClient {
         ).contents.map(content => parseSong(content));
     }
 
-    static async findSongsByUpdatedAt(): Promise<Song[]> {
+    static async findMostPlayedSongs(): Promise<Song[]> {
         return (
             await client.getList({ 
                 endpoint: this.endpoint,
                 queries: {
                     fields: this.fields,
                     limit: 10,
-                    orders: "-updatedAt"
+                    orders: "-playCount"
                 }
             })
         ).contents.map(content => parseSong(content));
+    }
+
+    static async updatePlayCount(id: string) {
+        /* コンテンツが存在しない場合は「Error: fetch API response status: 400」エラーになる */
+        const content = await client.get({ 
+            endpoint: this.endpoint, 
+            contentId: id,
+            queries: {
+                fields: "playCount"
+            }
+        });
+
+        await client.update({
+            endpoint: this.endpoint,
+            contentId: id,
+            content: {
+                playCount: content.playCount ? content.playCount + 1 : 1
+            }
+        });
     }
 }

@@ -6,12 +6,6 @@
     import type { Song } from "$lib/type";
 
     const { data } = $props();
-
-    function handlePlay(song: Song) {
-        alert(JSON.stringify(song))
-        play(song);
-    }
-
 </script>
 
 <Head title={`${data.game.title} | ${PAGE_TITLE}`} />
@@ -20,5 +14,5 @@
     <div class="flex justify-center mb-7">
         <h1 class="text-lg font-bold">{data.game.title}の楽曲</h1>
     </div>
-    <SongList songs={data.songs} handlePlayButtonClick={handlePlay} />
+    <SongList songs={data.songs} handlePlayButtonClick={play} />
 </div>

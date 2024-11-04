@@ -6,11 +6,6 @@
     import type { Song } from "$lib/type";
 
     const { data } = $props();
-
-    function handlePlay(song: Song) {
-        play(song)
-    }
-
 </script>
 
 <Head title={`楽曲検索 | ${PAGE_TITLE}`} />
@@ -19,5 +14,5 @@
     <div class="flex justify-center mb-7">
         <h1 class="text-lg font-bold">{`${data.keyword}の検索結果`}</h1>
     </div>
-    <SongList songs={data.songs} handlePlayButtonClick={handlePlay} />
+    <SongList songs={data.songs} handlePlayButtonClick={play} />
 </div>
