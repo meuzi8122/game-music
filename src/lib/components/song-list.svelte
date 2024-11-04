@@ -7,7 +7,7 @@
 
 <div class="flex flex-col">
     {#each songs as song}
-        <div class="flex justify-between">
+        <div class="flex justify-between" >
             <div class="flex items-center gap-3">
                 <div class="avatar">
                     <div class="mask mask-squircle h-16 w-16">
@@ -15,7 +15,7 @@
                     </div>
                 </div>
                 <div>
-                    <div class="font-bold">{song.title}</div>
+                    <div class="font-bold" data-testid="song-title">{song.title}</div>
                     <a class="link link-hover text-sm opacity-80" href={`/songs/games/${song.game.id}`}>{song.game.title}</a>
                 </div>
             </div>

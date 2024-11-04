@@ -3,7 +3,6 @@
     import SongList from "$lib/components/song-list.svelte";
     import { PAGE_TITLE } from "$lib/constant";
     import { play } from "$lib/stores/player";
-    import type { Song } from "$lib/type";
 
     const { data } = $props();
 </script>

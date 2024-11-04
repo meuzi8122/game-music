@@ -19,7 +19,7 @@
         <a class="btn btn-ghost text-xl" href="/">{PAGE_TITLE}</a>
     </div>
     <div class="flex-none">
-        <label for="song_search_modal" class="btn btn-square btn-ghost">
+        <label for="song_search_modal" class="btn btn-square btn-ghost" data-testid="search-button">
             <SearchIcon />
         </label>
     </div>
