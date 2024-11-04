@@ -11,7 +11,7 @@ export const player = writable<Player>({
 
 export const nowPlaying = derived(player, (_player) => {
     if (_player.song) {
-        return `${_player.song.title} / ${_player.song.game.title}`      
+        return `${_player.song.title} - ${_player.song.game.title}`      
     }
     return "";
 });

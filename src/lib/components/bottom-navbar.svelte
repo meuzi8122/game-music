@@ -2,8 +2,6 @@
     import { nowPlaying, pause, player, restart, stop } from "$lib/stores/player";
     import PauseIcon from "./icons/pause-icon.svelte";
     import PlayIcon from "./icons/play-icon.svelte";
-
-    const BUTTON_CLASS = "size-6";
 </script>
 
 <audio
@@ -15,13 +13,13 @@
 
 <div class="btm-nav">
     {#if $player.song && !$player.paused}
-        <button on:click={pause} disabled={!$player.song}>
-            <PauseIcon cls={BUTTON_CLASS} />
+        <button class="bg-teal-200 text-teal-600" on:click={pause} disabled={!$player.song}>
+            <PauseIcon cls="size-6" />
             <span class="btm-nav-label">{$nowPlaying}</span>
         </button>
     {:else}
-        <button on:click={restart} disabled={!$player.song}>
-            <PlayIcon cls={BUTTON_CLASS} />
+        <button class="bg-teal-200 text-teal-600" on:click={restart} disabled={!$player.song}>
+            <PlayIcon cls="size-6" />
             <span class="btm-nav-label">{$nowPlaying}</span>
         </button>
     {/if}
