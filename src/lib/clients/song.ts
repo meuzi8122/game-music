@@ -27,7 +27,8 @@ export class SongClient {
                 queries: {
                     fields: this.fields,
                     filters: `game[equals]${gameId}`,
-                    orders: "sortKey"
+                    orders: "sortKey",
+                    limit: 50
                 }
             })
         ).contents.map(content => parseSong(content));
@@ -56,6 +57,7 @@ export class SongClient {
             }
         });
 
+        /* レスポンスにはコンテンツIDのみ含まれる */
         await client.update({
             endpoint: this.endpoint,
             contentId: id,
