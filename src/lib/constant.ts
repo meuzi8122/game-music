@@ -1,1 +1,1 @@
-export const PAGE_TITLE = "ゲーム音楽（仮）"
+export const PAGE_TITLE = "GameMusic"
