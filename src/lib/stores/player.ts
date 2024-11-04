@@ -1,5 +1,5 @@
 import type { Player, Song } from "$lib/type";
-import { writable } from "svelte/store";
+import { derived, writable } from "svelte/store";
 
 /* TODO: Runeを使ってグローバルステートを管理できないか */
 
@@ -7,6 +7,13 @@ export const player = writable<Player>({
     song: null,
     currentTime: 0,
     paused: true
+});
+
+export const nowPlaying = derived(player, (_player) => {
+    if (_player.song) {
+        return `${_player.song.title} / ${_player.song.game.title}`      
+    }
+    return "";
 });
 
 export function play(song: Song) {

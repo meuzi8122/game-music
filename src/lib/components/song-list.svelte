@@ -1,8 +1,8 @@
 <script lang="ts">
-    import PlayButton from "./buttons/play-button.svelte";
-    import type { HandlePlayButtonClick, Song } from "$lib/type";
+    import PlayIcon from "./icons/play-icon.svelte";
+    import type { Song } from "$lib/type";
 
-    const { songs, handlePlayButtonClick } = $props<{ songs: Song[]; handlePlayButtonClick: HandlePlayButtonClick; }>();
+    const { songs, handlePlayButtonClick } = $props<{ songs: Song[]; handlePlayButtonClick: (song: Song) => void; }>();
 </script>
 
 <div class="flex flex-col">
@@ -19,7 +19,10 @@
                     <a class="link link-hover text-sm opacity-80" href={`/songs/games/${song.game.id}`}>{song.game.title}</a>
                 </div>
             </div>
-            <PlayButton handlePlayButtonClick={() => handlePlayButtonClick(song)} />
+            <!-- svelte-ignore event_directive_deprecated -->
+            <button class="btn btn-ghost" on:click={() => handlePlayButtonClick(song)}>
+                <PlayIcon cls="size-6" />
+            </button>
         </div>
         <div class="divider divider-neutral"></div>
     {/each}

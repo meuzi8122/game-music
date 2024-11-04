@@ -8,7 +8,8 @@
     const { data } = $props();
 
     function handlePlay(song: Song) {
-        play(song)
+        alert(JSON.stringify(song))
+        play(song);
     }
 
 </script>
