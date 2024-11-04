@@ -22,8 +22,12 @@ export async function play(song: Song) {
         paused: false,
         currentTime: 0
     }));
-
-   const res = await fetch(`/api/songs/${song.id}`, { method: "PATCH" });
+    
+    try {
+        await fetch(`/api/songs/${song.id}`, { method: "PATCH" });
+    } catch (err) {
+        console.log(err);
+    }
 }
 
 export function restart() {
